@@ -45,7 +45,7 @@ this.$parent.$data.id  //获取父元素data中的id
 this.$children.$data.id  //获取父元素data中的id
 ```
 这样用起来比较灵活，但是容易造成代码耦合性太强，导致维护困难。
-### 13. 通过eventBus传递数据
+### 133. 通过eventBus传递数据
 使用前可以在全局定义一个eventBus:
 ```
 window.eventBus = new Vue();
@@ -58,7 +58,7 @@ eventBus.$emit('eventBusName', id);
 ```
 //val即为传递过来的值
 eventBus.$on('eventBusName', function(val) {
-　console.log(val)
+    console.log(val)
 })
 ```
 最后记住要在beforeDestroy()中关闭这个eventBus:
@@ -70,13 +70,15 @@ setItem存储value
 用途：将value存储到key字段
 用法：.setItem( key, value)
 ```
-sessionStorage.setItem("key", "value"); localStorage.setItem("site", "js8.in");
+sessionStorage.setItem("key", "value"); 
+localStorage.setItem("site", "js8.in");
 ```
 getItem获取value
 用途：获取指定key本地存储的值
 用法：.getItem(key)
 ```
-var value = sessionStorage.getItem("key"); var site = localStorage.getItem("site");
+var value = sessionStorage.getItem("key"); 
+var site = localStorage.getItem("site");
 ```
 -----[链接](http://www.cnblogs.com/ygtq-island/p/6728137.html)-----
 
