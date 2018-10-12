@@ -6,7 +6,7 @@
 ###  ---目录---
 [TOC]
 
-###1. 路由传值
+### 1. 路由传值
 在跳转页面的时候，在js代码中的操作如下，在标签中使用<router-link>标签。
 ```
 this.$router.push({
@@ -38,16 +38,14 @@ this.$route.params.paramName和this.$route.query.paramName
 this.$router.push({name: 'OrderDetail', params: {orderId: id, type: 'buy'}})
 ```
 这种方式会把路由导航到 /OrderDetail/booking路径--([参考](http://router.vuejs.org/zh-cn/essentials/named-routes.html))
-###2. 通过parent,$chlidren等方法调取用层级关系的组件内的数据和方法
-
+### 2. 通过parent,$chlidren等方法调取用层级关系的组件内的数据和方法
 通过下面的方法调用：
 ```
 this.$parent.$data.id  //获取父元素data中的id
 this.$children.$data.id  //获取父元素data中的id
 ```
 这样用起来比较灵活，但是容易造成代码耦合性太强，导致维护困难。
-###3. 通过eventBus传递数据
-
+### 13. 通过eventBus传递数据
 使用前可以在全局定义一个eventBus:
 ```
 window.eventBus = new Vue();
@@ -67,7 +65,7 @@ eventBus.$on('eventBusName', function(val) {
 ```
 eventBus.$off('eventBusName');
 ```
-###4. 通过localStorage或者sessionStorage来存储数据--([参考](http://blog.csdn.net/qq_32786873/article/details/70853819))
+### 4. 通过localStorage或者sessionStorage来存储数据--([参考](http://blog.csdn.net/qq_32786873/article/details/70853819))
 setItem存储value
 用途：将value存储到key字段
 用法：.setItem( key, value)
