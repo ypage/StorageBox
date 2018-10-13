@@ -8,9 +8,9 @@
 [TOC]
 
 
-[转载 整理至cnblogs](https://www.cnblogs.com/wangfupeng1988/p/3977924.html)
-### 说明：
+[转载·整理至cnblogs](https://www.cnblogs.com/wangfupeng1988/p/3977924.html)
 
+### 说明：
         该教程绕开了javascript的一些基本的语法知识，直接讲解javascript中最难理解的两个部分，也是和其他主流面向对象语言区别最大的两个部分——原型和闭包，当然，肯定少不了原型链和作用域链。帮你揭开javascript最神秘的面纱。
         
         为什么要偏偏要讲这两个知识点？
@@ -23,7 +23,7 @@
 
 ### 1. 深入理解javascript原型和闭包（1）——一切都是对象
 
-    “一切都是对象”这句话的重点在于如何去理解“对象”这个概念。当然，也不是所有的都是对象，值类型就不是对象。
+        “一切都是对象”这句话的重点在于如何去理解“对象”这个概念。当然，也不是所有的都是对象，值类型就不是对象。
 首先咱们还是先看看javascript中一个常用的运算符——typeof。typeof应该算是咱们的老朋友，还有谁没用过它？
 typeof函数输出的一共有几种类型，在此列出：
 ```
@@ -379,7 +379,7 @@ javascript中的继承是通过原型链来体现的。先看几句代码
 
 看到了吧，有call、length等这些属性。
 
-那怎么还有hasOwnProperty呢？——那是Function.prototype继承自Object.prototype的方法。有疑问可以看看上一节将instanceof时候那个大图，看看Function.prototype.__proto__是否指向Object.prototype。
+&#160; &#160; &#160; &#160;那怎么还有hasOwnProperty呢？——那是Function.prototype继承自Object.prototype的方法。有疑问可以看看上一节将instanceof时候那个大图，看看Function.prototype.__proto__是否指向Object.prototype。
 
 原型、原型链，大家都明白了吗？
 
@@ -393,7 +393,7 @@ javascript中的继承是通过原型链来体现的。先看几句代码
 
 
   [1]: http://ot0v1xy2c.bkt.clouddn.com/javascript001.png
-  [2]: https://images0.cnblogs.com/blog/138012/201409/182015334711671.png
+  [2]: https://github.com/ypage/StorageBox/img/javascript001.png
   [3]: https://images0.cnblogs.com/blog/138012/201409/182015334711671.png
   [4]: https://images0.cnblogs.com/blog/138012/201409/182015334711671.png
   [5]: https://images0.cnblogs.com/blog/138012/201409/182015334711671.png
