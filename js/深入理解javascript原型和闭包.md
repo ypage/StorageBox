@@ -392,8 +392,8 @@ javascript中的继承是通过原型链来体现的。先看几句代码
 ``` 
 
 
-  [1]: http://ot0v1xy2c.bkt.clouddn.com/javascript001.png
-  [2]: https://github.com/ypage/StorageBox/img/js/closure/javascript001.png
+  [1]: https://github.com/ypage/StorageBox/blob/master/img/js/closure/javascript001.png
+  [2]: https://github.com/ypage/StorageBox/blob/master/img/js/closure/javascript001.png
   [3]: https://images0.cnblogs.com/blog/138012/201409/182015334711671.png
   [4]: https://images0.cnblogs.com/blog/138012/201409/182015334711671.png
   [5]: https://images0.cnblogs.com/blog/138012/201409/182015334711671.png
