@@ -164,11 +164,13 @@ prototype也是我们的老朋友，即使不了解的人，也应该都听过�
 这个prototype的属性值是一个对象（属性的集合，再次强调！），默认的只有一个叫做constructor的属性，指向这个函数本身。
 
 ![图2：][2]
+
 如上图，SuperType是是一个函数，右侧的方框就是它的原型。
 
 原型既然作为对象，属性的集合，不可能就只弄个constructor来玩玩，肯定可以自定义的增加许多属性。例如这位Object大哥，人家的prototype里面，就有好几个其他属性。
 
 ![图3：][3]
+
 咦，有些方法怎么似曾相似？
 
 对！别着急，之后会让你知道他们为何似曾相识。
@@ -184,6 +186,7 @@ function Fn() { }
 看到没有，这样就变成了
 
 ![图4：][4]
+
 没问题！
 
 但是，这样做有何用呢？ —— 解决这个问题，咱们还是先说说jQuery吧。
@@ -223,7 +226,9 @@ console.log(fn.getYear());
 注意：本文不是javascript基础教程，如果你没有接触过原型的基本知识，应该先去了解一下，推荐看《javascript高级程序设计（第三版）》第6章：面向对象的程序设计。
 
 ![图5：][5]
+
 ![图6：][6]
+
 上面截图看来，obj.__proto__和Object.prototype的属性一样！这么巧！
 
 答案就是一样。
@@ -231,6 +236,7 @@ console.log(fn.getYear());
 obj这个对象本质上是被Object函数创建的，因此obj.__proto__=== Object.prototype。我们可以用一个图来表示。
 
 ![图7：][7]
+
 即，每个对象都有一个__proto__属性，指向创建该对象的函数的prototype。
 
 那么上图中的“Object prototype”也是一个对象，它的__proto__指向哪里？
@@ -242,7 +248,8 @@ obj这个对象本质上是被Object函数创建的，因此obj.__proto__=== Obj
 但是Object.prototype确实一个特例——它的__proto__指向的是null，切记切记！
 
 ![图8：][8]
- 还有——函数也是一种对象，函数也有__proto__吗？
+ 
+还有——函数也是一种对象，函数也有__proto__吗？
 
 又一个好问题！——当然有。
 
@@ -251,6 +258,7 @@ obj这个对象本质上是被Object函数创建的，因此obj.__proto__=== Obj
 且看如下代码。
  
 ![图9：][9]
+
 以上代码中，第一种方式是比较传统的函数创建方式，第二种是用new Functoin创建。
 
 首先根本不推荐用第二种方式。
@@ -260,6 +268,7 @@ obj这个对象本质上是被Object函数创建的，因此obj.__proto__=== Obj
 好了，根据上面说的一句话——对象的__proto__指向的是创建它的函数的prototype，就会出现：Object.__proto__ === Function.prototype。用一个图来表示。
 
 ![图10：][10]
+
 上图中，很明显的标出了：自定义函数Foo.__proto__指向Function.prototype，Object.__proto__指向Function.prototype，唉，怎么还有一个……Function.__proto__指向Function.prototype？这不成了循环引用了？
 
 对！是一个环形结构。
@@ -273,6 +282,7 @@ obj这个对象本质上是被Object函数创建的，因此obj.__proto__=== Obj
 答案是肯定的。因为Function.prototype指向的对象也是一个普通的被Object创建的对象，所以也遵循基本的规则。
 
 ![图11：][11]
+
 OK 本节结束，是不是很乱？
 
 乱很正常。那这一节就让它先乱着，下一节我们将请另一个老朋友来帮忙，把它理清楚。这位老朋友就是——instanceof。
@@ -288,11 +298,13 @@ OK 本节结束，是不是很乱？
 这个时候就需要用到instanceof。例如：
 
 ![图12：][12]
+
 上图中，f1这个对象是被Foo创建，但是“f1 instanceof Object”为什么是true呢？
 
 至于为什么过会儿再说，先把instanceof判断的规则告诉大家。根据以上代码看下图：
 
 ![图13：][13]
+
 Instanceof运算符的第一个变量是一个对象，暂时称为A；第二个变量一般是一个函数，暂时称为B。
 
 Instanceof的判断队则是：沿着A的__proto__这条线来找，同时沿着B的prototype这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回true。如果找到终点还未重合，则返回false。
@@ -302,6 +314,7 @@ Instanceof的判断队则是：沿着A的__proto__这条线来找，同时沿着
 通过上以规则，你可以解释很多比较怪异的现象，例如：
 
 ![图14：][14]
+
 这些看似很混乱的东西，答案却都是true，这是为何？
 
 正好，这里也接上了咱们上一节说的“乱”。
@@ -309,6 +322,7 @@ Instanceof的判断队则是：沿着A的__proto__这条线来找，同时沿着
 上一节咱们贴了好多的图片，其实那些图片是可以联合成一个整体的，即：
 
 ![图15：][15]
+
 看这个图片，千万不要嫌烦，必须一条线一条线挨着分析。如果上一节你看的比较仔细，再结合刚才咱们介绍的instanceof的概念，相信能看懂这个图片的内容。
 
 看看这个图片，你也就知道为何上面三个看似混乱的语句返回的是true了。
@@ -328,6 +342,7 @@ Instanceof的判断队则是：沿着A的__proto__这条线来找，同时沿着
 javascript中的继承是通过原型链来体现的。先看几句代码
 
 ![图16：][16]
+
 以上代码中，f1是Foo函数new出来的对象，f1.a是f1对象的基本属性，f1.b是怎么来的呢？——从Foo.prototype得来，因为f1.__proto__指向的是Foo.prototype
 
 访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着__proto__这条链向上找，这就是原型链。
@@ -335,11 +350,13 @@ javascript中的继承是通过原型链来体现的。先看几句代码
 看图说话：
 
 ![图17：][17]
+
 上图中，访问f1.b时，f1的基本属性中没有b，于是沿着__proto__找到了Foo.prototype.b。
 
 那么我们在实际应用中如何区分一个属性到底是基本的还是从原型中找到的呢？大家可能都知道答案了——hasOwnProperty，特别是在for…in…循环中，一定要注意。
 
 ![图18：][18]
+
 等等，不对！ f1的这个hasOwnProperty方法是从哪里来的？ f1本身没有，Foo.prototype中也没有，哪儿来的？
 
 好问题。
@@ -347,6 +364,7 @@ javascript中的继承是通过原型链来体现的。先看几句代码
 它是从Object.prototype中来的，请看图：
 
 ![图19：][19]
+
 对象的原型链是沿着__proto__这条线走的，因此在查找f1.hasOwnProperty属性时，就会顺着原型链一直查找到Object.prototype。
 
 由于所有的对象的原型链都会找到Object.prototype，因此所有的对象都会有Object.prototype的方法。这就是所谓的“继承”。
@@ -358,6 +376,7 @@ javascript中的继承是通过原型链来体现的。先看几句代码
 我们都知道每个函数都有call，apply方法，都有length，arguments，caller等属性。为什么每个函数都有？这肯定是“继承”的。函数由Function函数创建，因此继承的Function.prototype中的方法。不信可以请微软的Visual Studio老师给我们验证一下：
 
 ![图20：][20]
+
 看到了吧，有call、length等这些属性。
 
 那怎么还有hasOwnProperty呢？——那是Function.prototype继承自Object.prototype的方法。有疑问可以看看上一节将instanceof时候那个大图，看看Function.prototype.__proto__是否指向Object.prototype。
